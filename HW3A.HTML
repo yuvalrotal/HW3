@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="menu">
+        <ul>
+          <li class="active">Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      <main>
+        <section class="posts">
+          <article class="post featured">
+            <h2>Featured Post</h2>
+            <p class="content">Featured content here</p>
+          </article>
+          <article class="post">
+            <h2>Regular Post</h2>
+            <p class="content">Regular content here</p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const postParagraphs = document.querySelectorAll(".post p");
+      postParagraphs.forEach((paragraph) => {
+        paragraph.style.fontSize = "18px";
+        paragraph.style.color = "darkgray";
+      });
+
+      const activeMenuItem = document.querySelector(".menu .active");
+      if (activeMenuItem) {
+        activeMenuItem.style.borderBottom = "2px solid blue";
+      }
+
+      const featuredPost = document.querySelector(".post.featured");
+      if (featuredPost) {
+        const parentElement = featuredPost.parentElement;
+        if (parentElement) {
+          parentElement.style.backgroundColor = "lightyellow";
+        }
+      }
+
+      const featuredPostHeading = document.querySelector(".post.featured h2");
+      if (featuredPostHeading) {
+        featuredPostHeading.style.textTransform = "uppercase";
+        featuredPostHeading.style.color = "red";
+      }
+
+      function addClassToElements(selector, className) {
+        const elements = document.querySelectorAll(selector);
+
+        elements.forEach((element) => {
+          element.classList.add(className);
+        });
+        return elements.length;
+      }
+    </script>
+  </body>
+</html>
